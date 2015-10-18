@@ -43,7 +43,9 @@ The set of variables that were estimated from these signals include (among other
 - mean(): Mean value
 - std(): Standard deviation
 
-Only these two were returned in the tidy_data.txt result set, as per the course instructions.
+Only these two were returned in the tidy_data.txt result set, as per the course instructions. Thus the frequency mean (meanFreq) was not included, nor were any mean measurements off of angles (e.g. gravityMean, jerkMean, etc.)
+
+These features were renamed to make them more readable. Features suffixed with "-std()" are suffixed with "StdDev" and features suffixed with "-mean()" are suffixed with "Mean".
 
 ## Activities
 There were six activities returned as part of the data:
