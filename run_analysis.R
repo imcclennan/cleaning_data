@@ -16,6 +16,7 @@ trainData[,563] <- read.table("train/subject_train.txt")
 ## Merge two sets together by rows
 mergedData <- rbind(testData, trainData) 
 
+
 # Determine which columns (features) to retain
 ## Read the features and make the feature names better suited for R with some substitutions 
 features <- read.table("features.txt") 
@@ -29,6 +30,7 @@ features <- features[columns,]
 ## Reduce the merged data to the columns we want, plus the activity and subject
 mergedData <- mergedData[,c(columns, 562, 563)] 
 
+
 ## Add the activity and subject column names, with a bit of cleaning 
 colnames(mergedData) <- c(gsub("\\Q()\\E", "", 
                                gsub("\\Qstd()\\E", "StdDev", 
@@ -39,8 +41,9 @@ colnames(mergedData) <- c(gsub("\\Q()\\E", "",
 ## load the labels for the activities
 activities <- read.table("activity_labels.txt") 
 
-## set the activity names
+## set the activity names and make subject a factor (activity already is)
 mergedData$activity <- activities[mergedData$activity, 2]
+mergedData$subject <- as.factor(mergedData$subject)
 
 # aggregate the data (ignoring activity and subject columns)
 tidyData = aggregate(mergedData[,1:66], 
