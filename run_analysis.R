@@ -36,10 +36,6 @@ colnames(mergedData) <- c(gsub("\\Q()\\E", "",
                           , "activity"
                           , "subject")
 
-## set factors for activity and subject
-mergedData$activity <- as.factor(mergedData$activity) 
-mergedData$subject <- as.factor(mergedData$subject) 
-
 ## load the labels for the activities
 activities <- read.table("activity_labels.txt") 
 
